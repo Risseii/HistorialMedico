@@ -1,0 +1,61 @@
+body{
+    font-family: 'Andika New Basic', sans-serif;
+}
+
+.container{
+    width: 500px;
+    height: 360px;
+    
+}
+
+.vsc-initialized{
+    background-color: #F5DFD5;
+}
+
+.btn-secondary{
+    background-color: #db4d7a;
+    border-color: #db4d7a;
+}
+
+.btn-secondary:hover, .btn-secondarysuccess:focus, .btn-secondary:active, .btn-secondary.active, .open>.dropdown-toggle.btn-secondary {
+    color: #fff;
+    background-color: #CC3363 !important;
+    border-color: #CC3363 !important;
+}
+
+.card {
+    background-color: #9B6A6C;
+    color: white;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 100px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.form-control:focus {
+    border-color: #aa4461;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(169, 94, 114, 0.8);
+}
+
+.d-grid{
+    justify-content: center;
+}
+
+.alert{
+    height:16%;
+}
+
+.form-group {
+    padding-top: 10px;
+}
+
+h2{
+    text-align: center;
+}

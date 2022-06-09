@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style4.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="column">
+        <h1>Historial médico</h1>
+            <a href="/dashboard" class="btn btn-success">Dashboard</a>
+        </div>
+        <div class="tarjetaizq">
+            <form action="/create/historial" method="post">
+            <input type="hidden" name="mascotas_id" id="mascotas_id" value="{{mascota.id}}">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="tarjeta">
+                            <p><b>Vacunaciones</b></p>
+                            <label>Tipo</label>
+                            <input type="text" name="tipo_v" id="tipo_v" class="form-control">
+                            <label>Fecha</label>
+                            <input type="date" name="date_v" id="date_v" class="form-control">
+                            <label>Producto</label>
+                            <input type="text" name="producto_v" id="producto_v" class="form-control">
+                        </div>
+                
+                        <div class="tarjeta">
+                            <br>
+                            <p><b>Control antipulgas</b></p>
+                            <label>Producto</label>
+                            <input type="text" name="producto_a" id="producto_a" class="form-control">
+                            <label>Fecha</label>
+                            <input type="date" name="date_a" id="date_a" class="form-control">
+                        </div>
+            
+                        <div class="tarjeta">
+                            <br>
+                            <p><b>Control antiparasitario</b></p>
+                            <label>Producto</label>
+                            <input type="text" name="producto_anti" id="producto_anti" class="form-control">
+                            <label>Fecha</label>
+                            <input type="date" name="date_anti" id="date_anti" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="tarjeta">
+                            <br>
+                            <p><b>Diagnóstico y tratamiento</b></p>
+                            <label>Diagnóstico</label>
+                            <input type="text" name="diagnostico" id="diagnostico" class="form-control">
+                            <label>Fecha</label>
+                            <input type="date" name="date_diag" id="date_diag" class="form-control">
+                            <br>
+                            <p><b>Receta</b></p>
+                            <label>Medicamento</label>
+                            <input type="text" name="medicamento" id="medicamento" class="form-control">
+                            <label>Cantidad</label>
+                            <input type="text" name="cantidad" id="cantidad" class="form-control" placeholder="Ejm: 2 pastillas">
+                            <label>Frecuencia</label>
+                            <input type="text" name="frecuencia" id="frecuencia" class="form-control" placeholder="Ejm: M/T/N">
+                            <label>Duración</label>
+                            <input type="text" name="duracion" id="duracion" class="form-control" placeholder="Ejm: 3 días">
+                            <label>Instrucciones médicas</label>
+                            <textarea name="instruction" col="20" row="3" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                            <div class="d-grid gap-2">
+                                <input type="submit" value="Guardar" class="btn btn-success">
+                            </div>
+            </form>
+        </div>
+
+        <div class="tarjetader">
+            <table class="table table-hover table-sm">
+                <thead>
+                    <h3><i class="fa-solid fa-cat"></i>Historial médico pasados:</h3>
+                    <tr>
+                        <th>Tipo de vacunación</th>
+                        <th>Fecha de vacunación</th>
+                        <th>Producto vacunación</th>
+                        <th>Producto antipulgas</th>
+                        <th>Fecha</th>
+                        <th>Producto antiparasitario</th>
+                        <th>Fecha</th>
+                        <th>Diagnóstico</th>
+                        <th>Fecha del diagnóstico</th>
+                        <th>Medicamento</th>
+                        <th>Cantidad</th>
+                        <th>Frecuencia</th>
+                        <th>Duración</th>
+                        <th>Instrucciones médicas</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    {% for h in historial %}
+                    {% if h.mascotas_id == mascota.id %}
+                    <tr> 
+                        <td>{{h.tipo_v[0]}}</td>
+                        <td>{{h.date_v[0].strftime('%Y-%m-%d')}}</td>
+                        <td>{{h.producto_v[0]}}</td>
+                        <td>{{h.producto_a[0]}}</td>
+                        <td>{{h.date_a[0].strftime('%Y-%m-%d')}}</td>
+                        <td>{{h.producto_anti[0]}}</td>
+                        <td>{{h.date_anti[0].strftime('%Y-%m-%d')}}</td>
+                        <td>{{h.diagnostico[0]}}</td>
+                        <td>{{h.date_diag[0].strftime('%Y-%m-%d')}}</td>
+                        <td>{{h.medicamento[0]}}</td>
+                        <td>{{h.cantidad[0]}}</td>
+                        <td>{{h.frecuencia[0]}}</td>
+                        <td>{{h.duracion[0]}}</td>
+                        <td>{{h.instruction}}</td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

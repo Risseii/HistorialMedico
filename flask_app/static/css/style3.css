@@ -1,0 +1,30 @@
+body{
+    font-family: 'Andika New Basic', sans-serif;
+}
+
+.btn-light{
+    background-color: #e1918dc7;
+    color: white;
+    border-color: #e1918dc7;
+}
+
+.btn-light:hover, .btn-light:focus, .btn-light:active, .btn-light.active, .open>.dropdown-toggle.btn-light {
+    color: white;
+    background-color: #e2817cc7 !important;
+    border-color: #e2817cc7  !important;
+}
+
+
+.vsc-initialized{
+    background-color: #FFFDF1;
+    color: #413913;
+}
+
+.table1{
+    background-color:  #c6a095;
+    color: white;
+}
+
+.table2{
+    background-color: #F5E2BC;
+}

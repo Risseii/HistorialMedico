@@ -1,0 +1,24 @@
+body{
+    font-family: 'Andika New Basic', sans-serif;
+}
+
+.btn-secondary{
+    background-color: #db4d7a;
+    border-color: #db4d7a;
+}
+
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .btn-secondary.active, .open>.dropdown-toggle.btn-secondary {
+    color: #fff;
+    background-color: #CC3363 !important;
+    border-color: #CC3363 !important;
+}
+
+.buttonr{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.vsc-initialized{
+    background-color: #F5DFD5;
+    color: rgb(161, 71, 71);
+}

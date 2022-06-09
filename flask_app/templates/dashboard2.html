@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style5.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenida {{vet.first_name}}</h1>
+        <a href="/logout" class="btn btn-outline-secondary">Log out</a>
+        <p>Estas son las mascotas:</p>
+    
+        <div class="row">
+            
+            {% for m in mascota %}
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <p><b>Propietario:</b> {{m.propietario}}</p>
+                        <p><b>Nombre:</b> {{m.name}}</p>
+                        <p><b>Tipo:</b> {{m.type}}</p>
+                        <p><b>Raza:</b> {{m.breed}}</p>
+                        <p><b>Peso:</b> {{m.weight}} kg</p>
+                        <p><a href="/show/historialmedico/{{m.id}}">Ver Historial</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</body>
+</html>

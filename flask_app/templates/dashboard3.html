@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style5.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Detalle</h1>
+        <a href="/dashboard" class="btn btn-outline-secondary">Back</a>
+        <div class="imagen_mascota">
+            <img src="{{ url_for('static', filename='img/'+mascota1.image) }}" class="img-fluid" alt="Responsive image"></img>
+        </div>
+        <div class="row">
+            {% for h in historiald.historial %}
+            <div class="col-lg-4">
+                <div class="card" style="padding: 15px;">
+                    <p><span>Tipo de la vacuna:</span> {{h.tipo_v[0]}}</p>
+                    <p><span>Fecha de la vacuna:</span> {{h.date_v[0].strftime('%Y-%m-%d')}}</p>
+                    <p><span>Producto de la vacuna:</span> {{h.producto_v[0]}}</p>
+                    <p><span>Producto de antipulgas:</span> {{h.producto_anti[0]}}</p>
+                    <p><span>Fecha de aplicación:</span>{{h.date_anti[0].strftime('%Y-%m-%d')}}</p>
+                    <p><span>Fecha del diagnóstico:</span> {{h.date_diag[0].strftime('%Y-%m-%d')}}</p>
+                    <p><span>Diagnóstico:</span> {{h.diagnostico[0]}}</p>
+                    <p><span>Medicamento:</span> {{h.medicamento[0]}}</p>
+                    <p><span>Instrucciones médicas:</span> {{h.instruction}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

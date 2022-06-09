@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style3.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="d-flex justify-content-between align-items-center">
+            <h1>Bienvenida {{vet.first_name}}</h1>
+            <a href="/new/mascota" class="btn btn-outline-secondary">Agregar mascota</a>
+            <a href="/logout" class="btn btn-outline-danger">Log out</a>
+        </nav>
+
+        <table class="table table-hover">
+            <thead>
+                <h3><i class="fa-solid fa-cat"></i>Estos son tus pacientes <i class="fa-solid fa-dog"></i></h3>
+                <tr class="table1">
+                    <th>Nombre de la mascota</th>
+                    <th>Tipo</th>
+                    <th>Edad</th>
+                    <th>Sexo</th>
+                    <th>Raza</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody class="table2">
+                {% for m in mascota %}
+                <tr> 
+                    <td>{{m.name}}</td>
+                    <td>{{m.type}}</td>
+                    <td>{{m.age}}</td>
+                    <td>{{m.gender}}</td>
+                    <td>{{m.breed}}</td>
+
+                    <td>
+                        <!--Si el usuario que solicito la cita es el mismo que el usuario que inició sesión-->
+                            <a class="btn btn-light" href="/edit/mascota/{{m.id}}">Editar Mascota</a>
+                            <a class="btn btn-light" href="/delete/mascota/{{m.id}}">Eliminar Mascota</a>
+                            <a class="btn btn-light" href="/new/historial/{{m.id}}">Crear historial médico</a>
+                            
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

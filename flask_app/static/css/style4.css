@@ -1,0 +1,41 @@
+.vsc-initialized{
+    background-color: #F5DFD5;
+    color: #bc573e;
+}
+
+body{
+    font-family: 'Andika New Basic', sans-serif;
+}
+
+.btn-success{
+    background-color: #A85D72;
+    color: white;
+    border-color: #A85D72;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open>.dropdown-toggle.btn-success {
+    color: white;
+    background-color: #aa4461 !important;
+    border-color: #aa4461 !important;
+}
+
+.form-control:focus {
+    border-color: #aa4461;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(169, 94, 114, 0.8);
+}
+
+.table-sm{
+    color: #bc573e;
+}
+
+.column{
+    margin-bottom: 10px;
+}
+
+.gap-2{
+    margin: 20px 0px 20px 0px; 
+}
+
+.alert{
+    height:16%;
+}
